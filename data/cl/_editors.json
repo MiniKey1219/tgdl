@@ -1,37 +1,27 @@
 [
     {
         "role": "owner",
-        "name": "nile64",
-        "link": "https://www.youtube.com/@nile64"
-    },
-    {
-        "role": "admin",
-        "name": "Gp0",
-        "link": "https://www.youtube.com/@RealGp0"
-    },
-    {
-        "role": "helper",
-        "name": "cataclysm guy",
-        "link": "https://www.youtube.com/@cataclysmguy"
-    },
-    {
-        "role": "helper",
         "name": "CurtaGD",
         "link": "https://www.youtube.com/@CurtaGD"
     },
     {
+        "role": "owner",
+        "name": "nozz",
+        "link": "https://www.youtube.com/@RealGp0"
+    },
+    {
+        "role": "admin",
+        "name": "bunni",
+        "link": "https://www.youtube.com/@bunnilolz"
+    },
+    {
+        "role": "admin",
+        "name": "Gremlin",
+        "link": "https://www.youtube.com/@gdgremlin"
+    },
+    {
         "role": "helper",
-        "name": "TheRealWolfClaw",
-        "link": "https://www.youtube.com/channel/UCDpTTulgNV4KAwpagtfXd3w"
-    },
-    {
-        "role": "dev",
-        "name": "nile64",
-        "link": "https://www.youtube.com/@nile64"
-    },
-    {
-        "role": "dev",
-        "name": "cataclysm guy",
-        "link": "https://www.youtube.com/@cataclysmguy"
+        "name": "Drag0n43",
+        "link": ""
     }
 ]
