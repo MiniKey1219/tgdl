@@ -1,1 +1,1 @@
-OneMoreDiscordServer's demonlist and ILL.
+The Geometrical Demon List (Squared)
