@@ -1,27 +1,27 @@
 [
     {
         "role": "owner",
-        "name": "CurtaGD",
-        "link": "https://www.youtube.com/@CurtaGD"
-    },
-    {
-        "role": "owner",
-        "name": "nozz",
-        "link": ""
-    },
-    {
-        "role": "admin",
         "name": "bunni",
         "link": "https://www.youtube.com/@bunnilolz"
     },
     {
+        "role": "owner",
+        "name": "SiphonGMD",
+        "link": "https://www.youtube.com/@minikey1692"
+    },
+    {
         "role": "admin",
-        "name": "Gremlin",
-        "link": "https://www.youtube.com/@gdgremlin"
+        "name": "CurtaGD",
+        "link": "https://www.youtube.com/@CurtaGD"
+    },
+    {
+        "role": "admin",
+        "name": "Visor702",
+        "link": "https://www.youtube.com/"
     },
     {
         "role": "helper",
-        "name": "Drag0n43",
+        "name": "the rizzler",
         "link": ""
     }
 ]
