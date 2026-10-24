@@ -1,11 +1,11 @@
 [
     {
         "role": "owner",
-        "name": "bunni",
-        "link": "https://www.youtube.com/@bunnilolz"
+        "name": "Dragon43",
+        "link": "https://www.youtube.com/@Drag0n43GMD"
     },
     {
-        "role": "owner",
+        "role": "admin",
         "name": "SiphonGMD",
         "link": "https://www.youtube.com/@minikey1692"
     },
@@ -18,10 +18,5 @@
         "role": "admin",
         "name": "Visor702",
         "link": "https://www.youtube.com/"
-    },
-    {
-        "role": "helper",
-        "name": "the rizzler",
-        "link": ""
     }
 ]
