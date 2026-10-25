@@ -18,21 +18,17 @@ export function score(rank, percent, minPercent) {
         return 0;
     }
 
-    // Old formula
-    /*
-    let score = (100 / Math.sqrt((rank - 1) / 50 + 0.444444) - 50) *
-        ((percent - (minPercent - 1)) / (100 - (minPercent - 1)));
-    */
     // New formula
     let score = 0;
     
-    if(rank <= 25){
-        score = (-24.9975*Math.pow(rank-1, 0.4) + 200) *
-            ((percent - (minPercent - 1)) / (100 - (minPercent - 1)));
-    }
-    else {
-        score = (-24.9975*Math.pow(rank-1, 0.4) + 100) *
-            ((percent - (minPercent - 1)) / (100 - (minPercent - 1)));
+    if(rank > 0 && rank <= 20) {
+        score = (250 - 100.39) * Math.pow(1.168, (1 - rank)) + 100.39;
+    } else if (rank > 20 && rank <= 35) {
+        score = (250 - 83.389) * Math.pow(1.0099685, (2 - rank)) - 31.152;
+    } else if (rank > 35 && rank <= 55) {
+        score = 212.61 * Math.pow(1.036, (1 - rank)) + 25.071;
+    } else if (rank > 55 && rank <= 150) {
+        score = 56.191 * Math.pow(2, (54.147 - (x + 3.2)) * (Math.log(50) / 99)) + 6.273;
     }
 
     score = Math.max(0, score);
