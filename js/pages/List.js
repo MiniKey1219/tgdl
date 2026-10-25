@@ -66,7 +66,12 @@ export default {
                     <table class="records">
                         <tr v-for="record in level.records" class="record">
                             <td class="percent">
-                                <p>{{ ((record.percent / level.endpercent) * 100).toFixed(2) }}% ({{record.percent}}%)</p>
+                                <p>
+                                    <template v-if="Number(record.percent) === 100">100%</template>
+                                    <template v-else>
+                                        {{ ((record.percent / level.endpercent) * 100).toFixed(2) }}% ({{ record.percent }}%)
+                                    </template>
+                                </p>
                             </td>
                             <td class="user">
                                 <a :href="record.link" target="_blank" class="type-label-lg">{{ record.user }}</a>
