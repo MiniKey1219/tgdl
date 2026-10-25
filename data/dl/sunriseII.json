@@ -9,5 +9,11 @@
     "endpercent": 98,
     "password": "Copyable",
     "records": [
+        {
+            "user": "Curta",
+            "link": "https://youtu.be/ghddSyfaOE4",
+            "percent": 63,
+            "hz": "72 Hz (CBF)"
+        }
     ]
 }
