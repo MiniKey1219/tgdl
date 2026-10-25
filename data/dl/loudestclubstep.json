@@ -8,7 +8,17 @@
     "percentToQualify": 64,
     "password": "Not Copyable",
     "records": [
-       "",
-        ""
+        {
+            "user": "Emmber",
+             "link": "https://youtu.be/",
+             "percent": 100,
+             "hz": "??"
+        },
+        {
+            "user": "Waffle",
+             "link": "https://youtu.be/dlN47vmJUZc?si=wxQy-qPSKkETVuQx",
+             "percent": 80,
+             "hz": 60
+        }
     ]
 }
