@@ -58,6 +58,7 @@ export default {
                         <li>
                             <div class="type-title-sm">Endscreen %</div>
                             <p>{{ level.endpercent || 100 }}% </p>
+                        </li>
                     </ul>
                     <h2>Records</h2>
                     <p v-if="selected + 1 <= 75"><strong>{{ ((level.percentToQualify / level.endpercent) * 100).toFixed(2) }}%</strong> GP ({{ level.percentToQualify }}%) or better to qualify</p>
