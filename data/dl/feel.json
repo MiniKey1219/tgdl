@@ -1,0 +1,19 @@
+{
+    "id": 151219769,
+    "name": "Feel",
+    "author": "Curta",
+    "creators": ["corry"],
+    "verifier": "Curta",
+    "verification": "https://www.youtube.com/watch?v=ZI12aJG5p5U",
+    "percentToQualify": 82,
+    "endpercent": 97,
+    "password": "Copyable",
+    "records": [
+        {
+            "user": "Rainzy",
+             "link": "https://youtu.be/",
+             "percent": 100,
+             "hz": "240Hz"
+        }
+    ]
+}
