@@ -18,5 +18,50 @@
         "role": "admin",
         "name": "visor702",
         "link": "https://www.youtube.com/@Kriszvxl4"
+    },
+    {
+        "role": "dev",
+        "name": "codingfire",
+        "link": "https://www.youtube.com/@codingfiremc"
+    },
+    {
+        "role": "helper",
+        "name": "CoolEnder32",
+        "link": "https://www.youtube.com/@CoolEnder32"
+    },
+    {
+        "role": "helper",
+        "name": "Gp0",
+        "link": "https://www.youtube.com/channel/UC8bDZWtv8kCb07Ml3SxP32g"
+    },
+    {
+        "role": "helper",
+        "name": "Gremlin",
+        "link": "https://www.youtube.com/@gdgremlin"
+    },
+    {
+        "role": "helper",
+        "name": "nile",
+        "link": "https://www.youtube.com/channel/UCu7pRT505aKdVIt3BChVC4g"
+    },
+    {
+        "role": "helper",
+        "name": "nozz",
+        "link": "https://www.youtube.com/@antarct1clights"
+    },
+    {
+        "role": "helper",
+        "name": "Rainzy",
+        "link": "https://www.youtube.com/@RainzyGD"
+    },
+    {
+        "role": "helper",
+        "name": "Waffle",
+        "link": "https://www.youtube.com/@TheWaffleMaster-my5ly"
+    },
+    {
+        "role": "helper",
+        "name": "Zoxi",
+        "link": "https://www.youtube.com/channel/UCRqC9jMliyQC43Q-KUfsWvA"
     }
 ]

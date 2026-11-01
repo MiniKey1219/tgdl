@@ -20,6 +20,12 @@
              "link": "https://youtu.be/dlN47vmJUZc?si=wxQy-qPSKkETVuQx",
              "percent": 80,
              "hz": "60Hz (CBF?)"
+        },
+        {
+            "user": "CoolEnder32",
+             "link": "https://www.youtube.com/watch?v=eFjoBkYRN4g",
+             "percent": 100,
+             "hz": "240Hz (CBF)"
         }
     ]
 }
