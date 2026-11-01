@@ -8,6 +8,10 @@ import { resetLeaderboard } from './pages/Leaderboard.js';
 var theList = "dl"
 const dir = '/data';
 
+export function getCurrentList() {
+    return theList;
+}
+
 export async function fetchList() {
     const listResult = await fetch(`${dir}/${theList}/_list.json`);
     try {
@@ -21,7 +25,7 @@ export async function fetchList() {
                         {
                             ...level,
                             path,
-                            records: level.records.sort(
+                            records: (level.records || []).sort(
                                 (a, b) => b.percent - a.percent,
                             ),
                         },
@@ -126,9 +130,9 @@ export async function fetchLeaderboard() {
     return [res.sort((a, b) => b.total - a.total), errs];
 }
 
-export async function changeList(){
-    theList = document.getElementById("list_dropdown").value;
-    console.log("theList: " + theList.toString() + ", dropdown value: " + document.getElementById("list_dropdown").value.toString());
+export async function changeList(value = "dl") {
+    if (value === theList) return;
+    theList = value;
     resetList();
     resetLeaderboard();
 }

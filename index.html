@@ -33,15 +33,6 @@
         <script src="https://unpkg.com/vue@3.2.31/dist/vue.global.js"></script>
         <script src="https://unpkg.com/vue-router@4.0.14/dist/vue-router.global.prod.js"></script>
         <script type="module" src="/js/main.js"></script>
-        <script type="module">
-            import { changeList } from "./js/content.js";
-
-            export function onChangeList(){
-                changeList();
-            }
-
-            window.onChangeList = onChangeList;
-        </script>
     </head>
     <body id="app">
         <header :class="{ dark: store.dark }">
@@ -54,6 +45,9 @@
                 </router-link>
                 <router-link class="leaderboardbtn" id="leaderboardbtn" to="/leaderboard" active-class="selectedbtn">
                     <span class="type-label-lg">Leaderboard</span>
+                </router-link>
+                <router-link class="upcomingbtn" id="upcomingbtn" to="/upcoming" active-class="selectedbtn">
+                    <span class="type-label-lg">Upcoming Levels</span>
                 </router-link>
                 <router-link class="roulettebtn" id="roulettebtn" to="/roulette" active-class="selectedbtn">
                     <span class="type-label-lg">Roulette</span>
@@ -68,20 +62,6 @@
                             alt=""
                         />
                     </button>
-                    <!-- Replace the '#' with your discord server's invite-->
-                    <a class="nav__icon" href="https://discord.gg/tP8aWZDsCg">
-                        <img src="/assets/discord.svg" alt="Discord Logo" />
-                    </a>
-                    <!-- List record submission form, add a link to replace the '#' when putting a link to your list submission form-->
-                    <a
-                        class="nav__cta type-label-lg"
-                        href="https://discord.gg/CaBpw7V6tX"
-                        target="_blank"
-                        >Submit Record</a>
-                    <select onchange="onChangeList()" class="nav__switch" id="list_dropdown">
-                        <option value="dl">Demon List</option>
-                        <option value="cl">Challenge List</option>
-                    </select>
                 </div>
             </nav>
         </header>

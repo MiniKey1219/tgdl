@@ -97,7 +97,7 @@ input[type="checkbox"] {
     cursor: pointer;
     margin: 0;
 }
-.listbtn, .packsbtn, .leaderboardbtn, .roulettebtn {
+.listbtn, .packsbtn, .leaderboardbtn, .roulettebtn, .upcomingbtn {
     padding-top: 4px;
     border-bottom: 4px solid transparent;
     display: flex;
@@ -110,7 +110,7 @@ input[type="checkbox"] {
     transition: border-bottom 0.5s ease-in-out;
     outline: none;
   }
-  .listbtn:hover, .packsbtn:hover, .leaderboardbtn:hover, .roulettebtn:hover {
+  .listbtn:hover, .packsbtn:hover, .leaderboardbtn:hover, .roulettebtn:hover, .upcomingbtn:hover {
     border-bottom: 4px solid white;
     transition: border-bottom 0.5s ease-in-out;
     outline: none;

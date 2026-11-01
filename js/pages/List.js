@@ -1,7 +1,7 @@
 import { store } from "../main.js";
 import { embed } from "../util.js";
 import { score } from "../score.js";
-import { fetchEditors, fetchList } from "../content.js";
+import { fetchEditors, fetchList, getCurrentList } from "../content.js";
 
 import Spinner from "../components/Spinner.js";
 import LevelAuthors from "../components/List/LevelAuthors.js";
@@ -25,7 +25,7 @@ export default {
                 <table class="list" v-if="list">
                     <tr v-for="([level, err], i) in list">
                         <td class="rank">
-                            <p v-if="i + 1 <= 25" class="type-label-lg">#{{ i + 1 }}</p>
+                            <p v-if="isUpcoming || i + 1 <= 25" class="type-label-lg">#{{ i + 1 }}</p>
                             <p v-else-if="i + 1 > 25 && i + 1 <= 50" class="type-label-lg">(E) #{{ i + 1 }}</p>
                             <p v-else class="type-label-lg">(L) #{{ i + 1 }}</p>
                         </td>
@@ -40,9 +40,9 @@ export default {
             <div class="level-container">
                 <div class="level" v-if="level">
                     <h1>{{ level.name }}</h1>
-                    <LevelAuthors :author="level.author" :creators="level.creators" :verifier="level.verifier"></LevelAuthors>
-                    <iframe class="video" id="videoframe" :src="video" frameborder="0"></iframe>
-                    <ul class="stats">
+                    <LevelAuthors :author="level.author" :creators="level.creators" :verifier="level.verifier" :upcoming="isUpcoming"></LevelAuthors>
+                    <iframe v-if="!isUpcoming" class="video" id="videoframe" :src="video" frameborder="0"></iframe>
+                    <ul class="stats" v-if="!isUpcoming">
                         <li>
                             <div class="type-title-sm">Points when completed</div>
                             <p>{{ score(selected + 1, 100, level.percentToQualify) }}</p>
@@ -56,31 +56,43 @@ export default {
                             <p>{{ level.endpercent || 100 }}% </p>
                         </li>
                     </ul>
-                    <h2>Records</h2>
-                    <p v-if="selected + 1 <= 75"><strong>{{ ((level.percentToQualify / level.endpercent) * 100).toFixed(2) }}%</strong> GP ({{ level.percentToQualify }}%) or better to qualify</p>
-                    <p v-else-if="selected +1 <= 150"><strong>100%</strong> or better to qualify</p>
-                    <p v-else>This level does not accept new records.</p>
-                    <table class="records">
-                        <tr v-for="record in level.records" class="record">
-                            <td class="percent">
-                                <p>
-                                    <template v-if="Number(record.percent) === 100">100%</template>
-                                    <template v-else>
-                                        {{ ((record.percent / level.endpercent) * 100).toFixed(2) }}% ({{ record.percent }}%)
-                                    </template>
-                                </p>
-                            </td>
-                            <td class="user">
-                                <a :href="record.link" target="_blank" class="type-label-lg">{{ record.user }}</a>
-                            </td>
-                            <td class="mobile">
-                                <img v-if="record.mobile" :src="\`/assets/phone-landscape\${store.dark ? '-dark' : ''}.svg\`" alt="Mobile">
-                            </td>
-                            <td class="hz">
-                                <p>{{ record.hz }}</p>
-                            </td>
-                        </tr>
-                    </table>
+                    <ul class="stats" v-else>
+                        <li>
+                            <div class="type-title-sm">NLW Tier</div>
+                            <p>{{ level.nlwTier || 'Unknown' }}</p>
+                        </li>
+                        <li>
+                            <div class="type-title-sm">Status</div>
+                            <p>{{ level.status || 'Unknown' }}</p>
+                        </li>
+                    </ul>
+                    <template v-if="!isUpcoming">
+                        <h2>Records</h2>
+                        <p v-if="selected + 1 <= 75"><strong>{{ ((level.percentToQualify / level.endpercent) * 100).toFixed(2) }}%</strong> GP ({{ level.percentToQualify }}%) or better to qualify</p>
+                        <p v-else-if="selected +1 <= 150"><strong>100%</strong> or better to qualify</p>
+                        <p v-else>This level does not accept new records.</p>
+                        <table class="records">
+                            <tr v-for="record in level.records" class="record">
+                                <td class="percent">
+                                    <p>
+                                        <template v-if="Number(record.percent) === 100">100%</template>
+                                        <template v-else>
+                                            {{ ((record.percent / level.endpercent) * 100).toFixed(2) }}% ({{ record.percent }}%)
+                                        </template>
+                                    </p>
+                                </td>
+                                <td class="user">
+                                    <a :href="record.link" target="_blank" class="type-label-lg">{{ record.user }}</a>
+                                </td>
+                                <td class="mobile">
+                                    <img v-if="record.mobile" :src="\`/assets/phone-landscape\${store.dark ? '-dark' : ''}.svg\`" alt="Mobile">
+                                </td>
+                                <td class="hz">
+                                    <p>{{ record.hz }}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </template>
                 </div>
                 <div v-else class="level" style="height: 100%; justify-content: center; align-items: center;">
                     <p>(ノಠ益ಠ)ノ彡┻━┻</p>
@@ -104,28 +116,30 @@ export default {
                             </li>
                         </ol>
                     </template>
-                    <h3>Submission Requirements</h3>
-                    <p>
-                        Achieved the record without using hacks (FPS bypass and CBF are allowed)
-                    </p>
-                    <p>
-                        Achieved the record on the level that is listed on the site - please check the level ID before you submit a record
-                    </p>
-                    <p>
-                        Have either source audio or clicks/taps in the video. Edited audio only does not count
-                    </p>
-                    <p>
-                        The recording must have a previous attempt and entire death animation shown before the completion, unless the completion is on the first attempt. Everyplay records are exempt from this
-                    </p>
-                    <p>
-                        The recording must also show the player hit the endwall, or the completion will be invalidated.
-                    </p>
-                    <p>
-                        Do not use secret routes or bug routes
-                    </p>
-                    <p>
-                        Do not use easy modes, only a record of the unmodified level qualifies
-                    </p>
+                    <template v-if="!isUpcoming">
+                        <h3>Submission Requirements</h3>
+                        <p>
+                            Achieved the record without using hacks (FPS bypass and CBF are allowed)
+                        </p>
+                        <p>
+                            Achieved the record on the level that is listed on the site - please check the level ID before you submit a record
+                        </p>
+                        <p>
+                            Have either source audio or clicks/taps in the video. Edited audio only does not count
+                        </p>
+                        <p>
+                            The recording must have a previous attempt and entire death animation shown before the completion, unless the completion is on the first attempt. Everyplay records are exempt from this
+                        </p>
+                        <p>
+                            The recording must also show the player hit the endwall, or the completion will be invalidated.
+                        </p>
+                        <p>
+                            Do not use secret routes or bug routes
+                        </p>
+                        <p>
+                            Do not use easy modes, only a record of the unmodified level qualifies
+                        </p>
+                    </template>
                 </div>
             </div>
         </main>
@@ -136,12 +150,13 @@ export default {
         loading: true,
         selected: 0,
         errors: [],
+        isUpcoming: false,
         roleIconMap,
         store
     }),
     computed: {
         level() {
-            return this.list[this.selected][0];
+            return this.list?.[this.selected]?.[0];
         },
         video() {
             if (!this.level.showcase) {
@@ -166,13 +181,20 @@ export default {
 };
 
 export async function resetList() {
+    // List page isn't mounted yet (e.g. direct load of /upcoming);
+    // its own mounted() hook will call this again.
+    if (!store.list) return;
+
     console.log("resetting");
-    
+
     store.list.loading = true;
+    store.list.errors = [];
+    store.list.selected = 0;
 
     // Hide loading spinner
     store.list.list = await fetchList();
     store.list.editors = await fetchEditors();
+    store.list.isUpcoming = getCurrentList() === "ul";
 
     // Error handling
     if (!store.list.list) {
