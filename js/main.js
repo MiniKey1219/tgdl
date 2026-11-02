@@ -9,6 +9,18 @@ export const store = Vue.reactive({
     },
 });
 
+// Scale the whole site so it always looks like it does on a 1920x1080 screen.
+// The layout is designed for 1920px wide; on any other width, zoom everything
+// by the ratio so proportions stay identical.
+const DESIGN_WIDTH = 1920;
+
+function applyZoom() {
+    document.documentElement.style.zoom = window.innerWidth / DESIGN_WIDTH;
+}
+
+applyZoom();
+window.addEventListener("resize", applyZoom);
+
 const app = Vue.createApp({
     data: () => ({ store }),
 });

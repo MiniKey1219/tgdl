@@ -40,25 +40,19 @@ main {
     background-color: var(--color-background);
     color: var(--color-on-background);
     display: grid;
-    grid-template-columns: minmax(16rem, 1fr) minmax(16rem, 2fr) minmax(
-            16em,
-            1fr
-        );
+    grid-template-columns: minmax(16rem, 1fr) minmax(16rem, 2fr) minmax(16em, 1fr);
     column-gap: 2rem;
 }
 
+/* Always use the 1920-wide layout (previously only at min-width: 1366px).
+   The page is zoomed to match 1920, so media queries and vw units based on
+   the real window size would break the header at smaller widths. */
 header {
-    display: flex;
-    padding-inline: calc(25vw - 10rem);
+    display: grid;
+    padding-inline: 0;
     height: 4rem;
     background-color: var(--color-primary);
     color: var(--color-on-primary);
-}
-@media screen and (min-width: 1366px) {
-    header {
-        display: grid;
-        padding-inline: 0;
-    }
 }
 header .logo, .title {
     justify-self: left;
