@@ -14,6 +14,58 @@ const roleIconMap = {
     trial: "user-lock",
 };
 
+// Pill colors by difficulty (everything except "extreme")
+const difficultyColors = {
+    easy: "#a4bb83",
+    medium: "#b6b388",
+    hard: "#c788ae",
+    insane: "#d9a293",
+};
+
+// Pill colors by tier, used when difficulty is "extreme".
+// These hex values were estimated from a screenshot of the table;
+// swap in the exact ones if you have them.
+const tierColors = {
+    beginner: "#ea9999",
+    easy: "#f28b8b",
+    medium: "#f97c7c",
+    hard: "#ff6b6b",
+    "very hard": "#ff4d4d",
+    insane: "#ff2a2a",
+    extreme: "#ff0000",
+    remorseless: "#cc0000",
+    relentless: "#aa0000",
+    terrifying: "#800000",
+    catastrophic: "#550000",
+    inexorable: "#2b0000",
+    excrutiating: "#000000",
+    excruciating: "#000000",
+    merciless: "#222222",
+};
+
+// Lowercases and strips a trailing "NLW" so "Extreme NLW" and "Extreme" both match
+const normalize = (s) =>
+    String(s ?? "").replace(/\s*nlw\s*$/i, "").trim().toLowerCase();
+
+function pillColor(level) {
+    const fromDifficulty = difficultyColors[normalize(level.difficulty)];
+    if (fromDifficulty) return fromDifficulty;
+    return tierColors[normalize(level.tier)] || "#888888";
+}
+
+function isDarkColor_(hex) {
+    const clean = String(hex).replace("#", "");
+
+    const r = parseInt(clean.substring(0, 2), 16);
+    const g = parseInt(clean.substring(2, 4), 16);
+    const b = parseInt(clean.substring(4, 6), 16);
+
+    // Perceived brightness.
+    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+
+    return brightness < 128;
+}
+
 export default {
     components: { Spinner, LevelAuthors },
     template: `
@@ -30,8 +82,9 @@ export default {
                             <p v-else class="type-label-lg">(L) #{{ i + 1 }}</p>
                         </td>
                         <td class="level" :class="{ 'active': selected == i, 'error': !level }">
-                            <button @click="selected = i">
+                            <button @click="selected = i" style="display: flex; align-items: center;">
                                 <span class="type-label-lg">{{ level?.name || \`Error (\${err}.json)\` }}</span>
+                                <span v-if="pillText(level)" :style="pillStyle(level)">{{ pillText(level) }}</span>
                             </button>
                         </td>
                     </tr>
@@ -57,10 +110,6 @@ export default {
                         </li>
                     </ul>
                     <ul class="stats" v-else>
-                        <li>
-                            <div class="type-title-sm">NLW Tier</div>
-                            <p>{{ level.nlwTier || 'Unknown' }}</p>
-                        </li>
                         <li>
                             <div class="type-title-sm">Status</div>
                             <p>{{ level.status || 'Unknown' }}</p>
@@ -177,6 +226,25 @@ export default {
     methods: {
         embed,
         score,
+        pillText(level) {
+            if (!level) return "";
+            return level.tier;
+        },
+        pillStyle(level) {
+            const background = pillColor(level);
+            return {
+                backgroundColor: background,
+                color: isDarkColor_(background) ? "#fff" : "#000",
+                fontFamily: "'Lexend Deca', sans-serif",
+                fontWeight: 700,
+                whiteSpace: "nowrap",
+                flexShrink: 0,
+                padding: "2px 12px",
+                borderRadius: "12px",
+                marginLeft: "10px",
+                display: "inline-block",
+            };
+        },
     },
 };
 
