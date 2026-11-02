@@ -66,6 +66,24 @@ function isDarkColor_(hex) {
     return brightness < 128;
 }
 
+// Quality pill colors by letter grade; "+" and "-" share the letter's color,
+// except S+ which has its own.
+const qualityColors = {
+    "S+": "#ff6ba3",
+    S: "#ff7f7f",
+    A: "#ffbf7f",
+    B: "#ffdf7f",
+    C: "#ffff7f",
+    D: "#bfff7f",
+    F: "#7fffff",
+};
+
+function qualityColor(quality) {
+    const grade = String(quality ?? "").trim().toUpperCase();
+    if (grade === "S+") return qualityColors["S+"];
+    return qualityColors[grade.charAt(0)] || "#888888";
+}
+
 export default {
     components: { Spinner, LevelAuthors },
     template: `
@@ -83,6 +101,7 @@ export default {
                         </td>
                         <td class="level" :class="{ 'active': selected == i, 'error': !level }">
                             <button @click="selected = i" style="display: flex; align-items: center;">
+                                <span v-if="!isUpcoming && level?.quality" :style="qualityStyle(level)">{{ level.quality }}</span>
                                 <span class="type-label-lg">{{ level?.name || \`Error (\${err}.json)\` }}</span>
                                 <span v-if="pillText(level)" :style="pillStyle(level)">{{ pillText(level) }}</span>
                             </button>
@@ -226,12 +245,8 @@ export default {
     methods: {
         embed,
         score,
-        pillText(level) {
-            if (!level) return "";
-            return level.tier;
-        },
-        pillStyle(level) {
-            const background = pillColor(level);
+        qualityStyle(level) {
+            const background = qualityColor(level.quality);
             return {
                 backgroundColor: background,
                 color: isDarkColor_(background) ? "#fff" : "#000",
@@ -240,6 +255,33 @@ export default {
                 whiteSpace: "nowrap",
                 flexShrink: 0,
                 padding: "2px 12px",
+                border: "2px solid #000",
+                borderRadius: "12px",
+                marginRight: "10px",
+                display: "inline-block",
+            };
+        },
+        pillText(level) {
+            if (!level) return "";
+            return this.isUnknownPill(level) ? "???" : level.tier;
+        },
+        // Upcoming levels missing both a difficulty and a tier get a white "???" pill
+        isUnknownPill(level) {
+            return this.isUpcoming && !level.difficulty && !level.tier;
+        },
+        pillStyle(level) {
+            const background = this.isUnknownPill(level)
+                ? "#ffffff"
+                : pillColor(level);
+            return {
+                backgroundColor: background,
+                color: isDarkColor_(background) ? "#fff" : "#000",
+                fontFamily: "'Lexend Deca', sans-serif",
+                fontWeight: 700,
+                whiteSpace: "nowrap",
+                flexShrink: 0,
+                padding: "2px 12px",
+                border: "2px solid #000",
                 borderRadius: "12px",
                 marginLeft: "10px",
                 display: "inline-block",
