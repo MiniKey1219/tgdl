@@ -1,0 +1,51 @@
+{
+    "id": 112459053,
+    "name": "Medieval Acropolis",
+    "author": "Zoxi",
+    "creators": ["Zoxi"],
+    "verifier": "Zoxi",
+    "verification": "https://www.youtube.com/watch?v=rAQU0qzToKU",
+    "percentToQualify": 38,
+    "endpercent": 89,
+    "difficulty": "medium",
+    "tier": "Tier 6",
+    "quality": "B",
+    "records": [
+        {
+            "user": "Curta",
+            "link": "https://youtu.be/DiRwBPWJFN4",
+            "percent": 100,
+            "hz": "72 Hz (CBF)"
+        },
+        {
+            "user": "Rainzy",
+            "link": "https://youtu.be/C82CjNxUDx4?is=fLrf-SDa2lDptxF3",
+            "percent": 100,
+            "hz": "60 Hz"
+        },
+        {
+            "user": "MiniKey",
+            "link": "",
+            "percent": 100,
+            "hz": "???Hz (CBF?)"
+        },
+        {
+            "user": "Dragon43",
+            "link": "",
+            "percent": 100,
+            "hz": "???Hz (CBF?)"
+        },
+        {
+            "user": "Waffle",
+            "link": "",
+            "percent": 100,
+            "hz": "60Hz (CBF)"
+        },
+        {
+            "user": "visor702",
+            "link": "https://medal.tv/games/geometry-dash/clips/nLvfI0tBwyBrc4vyY?invite=cr-MSxvVUksMjA3MjQwMTE3",
+            "percent": 100,
+            "hz": "???Hz (CBF?)"
+        }
+    ]
+}

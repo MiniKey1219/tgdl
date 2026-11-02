@@ -1,0 +1,33 @@
+{
+    "id": 111121951,
+    "name": "937",
+    "author": "Gp0",
+    "creators": ["Gp0"],
+    "verifier": "Gp0",
+    "verification": "https://www.youtube.com/watch?v=brc14iBukOo",
+    "percentToQualify": 67,
+    "endpercent": 96,
+    "difficulty": "medium",
+    "tier": "Tier 6",
+    "quality": "B+",
+    "records": [
+        {
+            "user": "Curta",
+            "link": "https://youtu.be/04rZWhTorNI",
+            "percent": 100,
+            "hz": "72 Hz (CBF)"
+        },
+        {
+            "user": "Rainzy",
+            "link": "https://medal.tv/games/geometry-dash/clips/nNuJaPUVlJOgCONiA?invite=cr-MSxUZUgsNTc3MTcyNzE3",
+            "percent": 100,
+            "hz": "60 Hz"
+        },
+        {
+            "user": "CoolEnder32",
+            "link": "https://www.youtube.com/watch?v=d9lkXNVB49s",
+            "percent": 100,
+            "hz": "240 Hz (CBF)"
+        }
+    ]
+}
