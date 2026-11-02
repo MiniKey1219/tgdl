@@ -1,0 +1,33 @@
+{
+    "id": 111031697,
+    "name": "Basketball Beats",
+    "author": "Zoxi",
+    "creators": ["Zoxi"],
+    "verifier": "Zoxi",
+    "verification": "https://www.youtube.com/watch?v=ED_GpokOSc8",
+    "percentToQualify": 73,
+    "endpercent": 95,
+    "difficulty": "hard",
+    "tier": "Tier 11",
+    "quality": "A",
+    "records": [
+        {
+            "user": "Curta",
+             "link": "https://youtu.be/N25II7BMBzM",
+             "percent": 100,
+             "hz": "72Hz (CBF)"
+        },
+        {
+            "user": "Waffle",
+             "link": "https://www.youtube.com/watch?v=1YELfRzXzd0",
+             "percent": 100,
+             "hz": "60Hz (CBF)"
+        },
+        {
+            "user": "MiniKey",
+             "link": "",
+             "percent": 84,
+             "hz": "???Hz (CBF?)"
+        }
+    ]
+}

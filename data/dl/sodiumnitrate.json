@@ -1,0 +1,21 @@
+{
+    "id": 103336725,
+    "name": "Sodium Nitrate",
+    "author": "Gp0",
+    "creators": ["Gp0"],
+    "verifier": "Gp0",
+    "verification": "https://www.youtube.com/watch?v=qreH2PxXo88",
+    "percentToQualify": 56,
+    "endpercent": 93,
+    "difficulty": "medium",
+    "tier": "Tier 7",
+    "quality": "S-",
+    "records": [
+        {
+            "user": "Curta",
+             "link": "https://youtu.be/irQ27WucXXE",
+             "percent": 100,
+             "hz": "72Hz (CBF)"
+        }
+    ]
+}

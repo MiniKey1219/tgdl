@@ -1,0 +1,27 @@
+{
+    "id": 108785250,
+    "name": "Riptide",
+    "author": "Zoxi",
+    "creators": ["Zoxi"],
+    "verifier": "Zoxi",
+    "verification": "https://www.youtube.com/watch?v=6Sickby5ULw",
+    "percentToQualify": 81,
+    "endpercent": 97,
+    "difficulty": "medium",
+    "tier": "Tier 8",
+    "quality": "C+",
+    "records": [
+        {
+            "user": "Curta",
+             "link": "https://youtu.be/KAWGJn4vPwg",
+             "percent": 100,
+             "hz": "72Hz (CBF)"
+        },
+        {
+            "user": "Dragon43",
+             "link": "",
+             "percent": 100,
+             "hz": "???Hz (CBF?)"
+        }
+    ]
+}
