@@ -84,6 +84,9 @@ function qualityColor(quality) {
     return qualityColors[grade.charAt(0)] || "#888888";
 }
 
+// Rank pill colors for #1, #2, #3 on the main list
+const rankColors = ["#ffd700", "#c0c0c0", "#cd7f32"]; // gold, silver, bronze
+
 export default {
     components: { Spinner, LevelAuthors },
     template: `
@@ -95,7 +98,7 @@ export default {
                 <table class="list" v-if="list">
                     <tr v-for="([level, err], i) in list">
                         <td class="rank">
-                            <p v-if="isUpcoming || i + 1 <= 25" class="type-label-lg">#{{ i + 1 }}</p>
+                            <p v-if="isUpcoming || i + 1 <= 25" class="type-label-lg" :style="rankStyle(i)">#{{ i + 1 }}</p>
                             <p v-else-if="i + 1 > 25 && i + 1 <= 50" class="type-label-lg">(E) #{{ i + 1 }}</p>
                             <p v-else class="type-label-lg">(L) #{{ i + 1 }}</p>
                         </td>
@@ -252,6 +255,20 @@ export default {
     methods: {
         embed,
         score,
+        rankStyle(i) {
+            if (this.isUpcoming || i > 2) return {};
+            const background = rankColors[i];
+            return {
+                backgroundColor: background,
+                color: isDarkColor_(background) ? "#fff" : "#000",
+                fontFamily: "'Lexend Deca', sans-serif",
+                fontWeight: 700,
+                padding: "2px 12px",
+                border: "2px solid #000",
+                borderRadius: "12px",
+                display: "inline-block",
+            };
+        },
         qualityStyle(level) {
             const background = qualityColor(level.quality);
             return {
