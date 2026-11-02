@@ -1,0 +1,39 @@
+{
+    "id": 150893195,
+    "name": "Unnamed702",
+    "author": "visor702",
+    "creators": ["visor702"],
+    "verifier": "visor702",
+    "verification": "https://www.youtube.com/watch?v=HMTB0SAP-pA",
+    "percentToQualify": 62,
+    "endpercent": 100,
+    "difficulty": "hard",
+    "tier": "Tier 15",
+    "quality": "C-",
+    "records": [
+        {
+            "user": "Dragon43",
+            "link": "",
+            "percent": 100,
+            "hz": "???Hz (CBF?)"
+        },
+        {
+            "user": "nozz",
+            "link": "https://medal.tv/games/geometry-dash/clips/nL6XbJ19nDpEpj-2G?invite=cr-MSx4cUcsNDEzMTE0Mzk4",
+            "percent": 100,
+            "hz": "???Hz (CBF?)"
+        },
+        {
+            "user": "Rainzy",
+            "link": "https://medal.tv/games/geometry-dash/clips/nN2RcQNHbDdJ1xMaY?invite=cr-MSx0c2UsNTc3MTcyNzE3",
+            "percent": 100,
+            "hz": "60Hz"
+        },
+        {
+            "user": "Curta",
+            "link": "https://youtu.be/txBJWhj2mhY",
+            "percent": 100,
+            "hz": "72Hz (CBF)"
+        }
+    ]
+}

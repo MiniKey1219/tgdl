@@ -1,0 +1,21 @@
+{
+    "id": 112100605,
+    "name": "Hear",
+    "author": "Curta",
+    "creators": ["Curta"],
+    "verifier": "Curta",
+    "verification": "https://www.youtube.com/watch?v=vNvbKYSY99c",
+    "percentToQualify": 65,
+    "endpercent": 100,
+    "difficulty": "insane",
+    "tier": "Tier 17",
+    "quality": "D-",
+    "records": [
+        {
+            "user": "nozz",
+            "link": "https://medal.tv/games/geometry-dash/clips/nL6GvmJzq532odC10?invite=cr-MSxtMVIsNDEzMTE0Mzk4",
+            "percent": 100,
+            "hz": "???Hz (CBF?)"
+        }
+    ]
+}

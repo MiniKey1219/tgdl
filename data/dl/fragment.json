@@ -1,0 +1,21 @@
+{
+    "id": 150843738,
+    "name": "Fragment",
+    "author": "Dragon43",
+    "creators": ["Dragon43"],
+    "verifier": "Curta",
+    "verification": "https://youtu.be/S3XSuto47VQ",
+    "percentToQualify": 62,
+    "endpercent": 98,
+    "difficulty": "easy",
+    "tier": "Tier 2",
+    "quality": "C",
+    "records": [
+        {
+            "user": "Rainzy",
+            "link": "https://youtu.be/vZ1nikB8Mw8?is=L0f_E1rgnvAm6QVK",
+            "percent": 100,
+            "hz": "60Hz"
+        }
+    ]
+}

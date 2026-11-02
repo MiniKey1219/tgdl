@@ -1,0 +1,21 @@
+{
+    "id": 112727147,
+    "name": "Sunset",
+    "author": "Curta",
+    "creators": ["Curta", "Gp0", "visor702", "Zoxi", "corry"],
+    "verifier": "Curta",
+    "verification": "https://www.youtube.com/watch?v=sSKRU6YrJEs",
+    "percentToQualify": 57,
+    "endpercent": 95,
+    "difficulty": "insane",
+    "tier": "Tier 16",
+    "quality": "D",
+    "records": [
+        {
+            "user": "Dragon43",
+            "link": "",
+            "percent": 100,
+            "hz": "???Hz (CBF?)"
+        }
+    ]
+}
