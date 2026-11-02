@@ -1,0 +1,21 @@
+{
+    "id": 109879517,
+    "name": "Chlorite Circles",
+    "author": "Curta",
+    "creators": ["Curta"],
+    "verifier": "Curta",
+    "verification": "https://youtu.be/iSo2GnGaddw",
+    "percentToQualify": 85,
+    "endpercent": 97,
+    "difficulty": "hard",
+    "tier": "Tier 13",
+    "quality": "D",
+    "records": [
+        {
+            "user": "Waffle",
+            "link": "https://www.youtube.com/watch?v=Y5I2jA7tm2s",
+            "percent": 100,
+            "hz": "60 Hz (CBF)"
+        }
+    ]
+}

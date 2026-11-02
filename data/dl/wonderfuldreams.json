@@ -1,0 +1,21 @@
+{
+    "id": 113355750,
+    "name": "Wonderful Dreams",
+    "author": "Curta",
+    "creators": ["Rainzy"],
+    "verifier": "Curta",
+    "verification": "https://youtu.be/rusxAss94eg",
+    "percentToQualify": 61,
+    "endpercent": 91,
+    "difficulty": "hard",
+    "tier": "Tier 14",
+    "quality": "B",
+    "records": [
+        {
+            "user": "Rainzy",
+            "link": "",
+            "percent": 100,
+            "hz": "240 Hz"
+        }
+    ]
+}
