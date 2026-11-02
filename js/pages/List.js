@@ -100,7 +100,6 @@ export default {
                         <td class="rank">
                             <p v-if="isUpcoming || i + 1 <= 25" class="type-label-lg" :style="rankStyle(i)">#{{ i + 1 }}</p>
                             <p v-else-if="i + 1 > 50" class="type-label-lg">(E) #{{ i + 1 }}</p>
-                            <p v-else class="type-label-lg">(L) #{{ i + 1 }}</p>
                         </td>
                         <td class="level" :class="{ 'active': selected == i, 'error': !level }">
                             <button @click="selected = i" style="display: flex; align-items: center;">
