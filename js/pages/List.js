@@ -263,10 +263,16 @@ export default {
                 color: isDarkColor_(background) ? "#fff" : "#000",
                 fontFamily: "'Lexend Deca', sans-serif",
                 fontWeight: 700,
-                padding: "2px 12px",
+                padding: "2px 8px",
                 border: "2px solid #000",
                 borderRadius: "12px",
-                display: "inline-block",
+                display: "block",
+                width: "fit-content",
+                marginLeft: "auto",
+                // Hang the pill's padding + border past the cell edge so the
+                // text lines up with the plain numbers (#4 and below)
+                marginRight: "-10px",
+                textAlign: "center",
             };
         },
         qualityStyle(level) {
