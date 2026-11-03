@@ -22,9 +22,6 @@ const difficultyColors = {
     insane: "#d9a293",
 };
 
-// Pill colors by tier, used when difficulty is "extreme".
-// These hex values were estimated from a screenshot of the table;
-// swap in the exact ones if you have them.
 const tierColors = {
     beginner: "#ea9999",
     easy: "#f28b8b",
