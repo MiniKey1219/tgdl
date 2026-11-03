@@ -18,7 +18,7 @@ const roleIconMap = {
 const difficultyColors = {
     easy: "#a4bb83",
     medium: "#b6b388",
-    hard: "#c788ae",
+    hard: "#c7aa8e",
     insane: "#d9a293",
 };
 
@@ -95,16 +95,16 @@ export default {
         </main>
         <main v-else class="page-list">
             <div class="list-container">
-                <table class="list" v-if="list">
+                <table class="list" v-if="list" style="width: 100%;">
                     <tr v-for="([level, err], i) in list">
                         <td class="rank">
-                            <p v-if="isUpcoming || i + 1 <= 50" class="type-label-lg" :style="rankStyle(i)">#{{ i + 1 }}</p>
-                            <p v-else-if="i + 1 > 50" class="type-label-lg">(E) #{{ i + 1 }}</p>
+                            <p v-if="isUpcoming || i + 1 < 50" class="type-label-lg" :style="rankStyle(i)">#{{ i + 1 }}</p>
+                            <p v-else class="type-label-lg">(E) #{{ i + 1 }}</p>
                         </td>
-                        <td class="level" :class="{ 'active': selected == i, 'error': !level }">
-                            <button @click="selected = i" style="display: flex; align-items: center;">
+                        <td class="level" :class="{ 'active': selected == i, 'error': !level }" style="width: 100%;">
+                            <button @click="selected = i" style="display: flex; align-items: center; width: 100%;">
                                 <span v-if="!isUpcoming && level?.quality" :style="qualityStyle(level)">{{ level.quality }}</span>
-                                <span class="type-label-lg">{{ level?.name || \`Error (\${err}.json)\` }}</span>
+                                <span class="type-label-lg" style="margin-right: 10px; text-align: left;">{{ level?.name || \`Error (\${err}.json)\` }}</span>
                                 <span v-if="pillText(level)" :style="pillStyle(level)">{{ pillText(level) }}</span>
                             </button>
                         </td>
@@ -312,7 +312,7 @@ export default {
                 padding: "2px 12px",
                 border: "2px solid #000",
                 borderRadius: "12px",
-                marginLeft: "10px",
+                marginLeft: "auto",
                 display: "inline-block",
             };
         },
