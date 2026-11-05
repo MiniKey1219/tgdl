@@ -1,6 +1,7 @@
 import { store } from "../main.js";
 import { embed } from "../util.js";
 import { score } from "../score.js";
+import { levelScore } from "../tierScore.js";
 import { fetchEditors, fetchList, getCurrentList } from "../content.js";
 
 import Spinner from "../components/Spinner.js";
@@ -22,6 +23,9 @@ const difficultyColors = {
     insane: "#d9a293",
 };
 
+// Pill colors by tier, used when difficulty is "extreme".
+// These hex values were estimated from a screenshot of the table;
+// swap in the exact ones if you have them.
 const tierColors = {
     beginner: "#ea9999",
     easy: "#f28b8b",
@@ -35,7 +39,6 @@ const tierColors = {
     terrifying: "#800000",
     catastrophic: "#550000",
     inexorable: "#2b0000",
-    excrutiating: "#000000",
     excruciating: "#000000",
     merciless: "#222222",
 };
@@ -116,7 +119,7 @@ export default {
                     <ul class="stats" v-if="!isUpcoming">
                         <li>
                             <div class="type-title-sm">Points when completed</div>
-                            <p>{{ score(selected + 1, 100, level.percentToQualify) }}</p>
+                            <p>{{ levelPoints(level) }}</p>
                         </li>
                         <li>
                             <div class="type-title-sm">ID</div>
@@ -251,6 +254,9 @@ export default {
     methods: {
         embed,
         score,
+        levelPoints(level) {
+            return levelScore(level, 100) ?? "Unknown";
+        },
         rankStyle(i) {
             if (this.isUpcoming || i > 2) return {};
             const background = rankColors[i];

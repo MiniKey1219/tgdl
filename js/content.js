@@ -1,4 +1,5 @@
-import { round, score } from './score.js';
+import { round } from './score.js';
+import { levelScore } from './tierScore.js';
 import { resetList } from './pages/List.js';
 import { resetLeaderboard } from './pages/Leaderboard.js';
 
@@ -77,7 +78,7 @@ export async function fetchLeaderboard() {
         verified.push({
             rank: rank + 1,
             level: level.name,
-            score: score(rank + 1, 100, level.percentToQualify),
+            score: levelScore(level, 100) ?? 0,
             link: level.verification,
         });
 
@@ -96,7 +97,7 @@ export async function fetchLeaderboard() {
                 completed.push({
                     rank: rank + 1,
                     level: level.name,
-                    score: score(rank + 1, 100, level.percentToQualify),
+                    score: levelScore(level, 100) ?? 0,
                     link: record.link,
                 });
                 return;
@@ -106,7 +107,7 @@ export async function fetchLeaderboard() {
                 rank: rank + 1,
                 level: level.name,
                 percent: record.percent,
-                score: score(rank + 1, record.percent, level.percentToQualify),
+                score: levelScore(level, record.percent) ?? 0,
                 link: record.link,
             });
         });
@@ -130,6 +131,10 @@ export async function fetchLeaderboard() {
     return [res.sort((a, b) => b.total - a.total), errs];
 }
 
+/**
+ * Switches the active list. Called from the router (see main.js):
+ * "/upcoming" -> "ul", everything else -> "dl".
+ */
 export async function changeList(value = "dl") {
     if (value === theList) return;
     theList = value;
